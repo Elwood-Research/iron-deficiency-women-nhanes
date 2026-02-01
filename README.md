@@ -5,6 +5,15 @@
 [![Study Status](https://img.shields.io/badge/status-complete-success)](./)
 [![Sample Size](https://img.shields.io/badge/n=6,125%20women-blue)](./)
 [![License](https://img.shields.io/badge/license-MIT-green)](./)
+[![PDF Manuscript](https://img.shields.io/badge/PDF-manuscript-orange)](./iron-deficiency-women-nhanes-manuscript.pdf)
+
+---
+
+## 📄 Manuscript
+
+📥 **[Download PDF Manuscript](./iron-deficiency-women-nhanes-manuscript.pdf)** (233 KB, 8-10 pages)
+
+The complete research manuscript is available as a compiled PDF, ready for submission to peer-reviewed journals.
 
 ---
 
