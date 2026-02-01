@@ -1,0 +1,62 @@
+% ============================================
+% FIGURES FOR NHANES IRON DEFICIENCY STUDY
+% ============================================
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{geometry}
+\usepackage{float}
+
+\geometry{margin=2.5cm}
+
+\begin{document}
+
+% ============================================
+% FIGURE 1: STUDY FLOW DIAGRAM
+% ============================================
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{../04-analysis/outputs/figures/figure1_flow_diagram.png}
+\caption{Study flow diagram showing participant selection and exclusion criteria for the NHANES Iron Deficiency Without Anemia study. The final analytic sample comprised 6,125 non-pregnant women aged 18--45 years with complete laboratory data. IDWA = iron deficiency without anemia.}
+\label{fig:flow}
+\end{figure}
+
+\newpage
+
+% ============================================
+% FIGURE 2: FERRITIN DISTRIBUTION
+% ============================================
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{../04-analysis/outputs/figures/figure2_ferritin_distribution.png}
+\caption{Distribution of serum ferritin levels among iron supplement users (n=1,018) and non-users (n=5,107). The solid vertical line indicates the WHO iron deficiency threshold ($<$15~$\mu$g/L); the dashed line indicates the physiologically-based threshold ($\sim$25~$\mu$g/L). Supplement users demonstrate a right-shifted distribution with higher median ferritin levels. Values are survey-weighted estimates.}
+\label{fig:ferritin_dist}
+\end{figure}
+
+\newpage
+
+% ============================================
+% FIGURE 3: IDWA PREVALENCE BY DEMOGRAPHICS
+% ============================================
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{../04-analysis/outputs/figures/figure3_idwa_prevalence.png}
+\caption{Prevalence of iron deficiency without anemia (IDWA) by demographic characteristics. (A) Prevalence by race/ethnicity showing highest rates among Mexican American women (11.6\%) and lowest among non-Hispanic Black women (6.5\%). (B) Prevalence by age group showing peak prevalence among women aged 36--40 years (10.3\%). (C) Prevalence by poverty income ratio. (D) Prevalence by BMI category. Error bars represent 95\% confidence intervals. All estimates incorporate NHANES survey weights.}
+\label{fig:prevalence}
+\end{figure}
+
+\newpage
+
+% ============================================
+% FIGURE 4: FOREST PLOT OF REGRESSION RESULTS
+% ============================================
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{../04-analysis/outputs/figures/figure4_forest_plot.png}
+\caption{Forest plot showing survey-weighted regression coefficients for the association between iron supplement use and log-transformed ferritin across three models: Model 1 (unadjusted), Model 2 (adjusted for demographics), and Model 3 (fully adjusted including BMI). Squares represent point estimates; horizontal lines represent 95\% confidence intervals. The vertical dashed line indicates the null value ($\beta$=0). The fully adjusted model shows a statistically significant association ($\beta$=0.062, 95\% CI: 0.001--0.123; p=0.048).}
+\label{fig:forest}
+\end{figure}
+
+\end{document}

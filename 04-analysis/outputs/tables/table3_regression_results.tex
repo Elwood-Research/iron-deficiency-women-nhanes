@@ -1,0 +1,27 @@
+\begin{table}[htbp]
+\centering
+\caption{Association Between Iron Supplement Use and Log-Transformed Ferritin}
+\label{tab:regression}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Variable} & \textbf{Model 1} & \textbf{Model 2} & \textbf{Model 3} \\
+ & \textbf{(Unadjusted)} & \textbf{(Demographics)} & \textbf{(Fully Adjusted)} \\
+\midrule
+Iron supplement use & 0.081 [0.023, 0.140]; p=0.007 & 0.049 [-0.013, 0.110]; p=0.120 & 0.062 [0.001, 0.123]; p=0.048 \\
+\midrule
+Age, years & --- & 0.006 & 0.004 \\
+Non-Hispanic Black & --- & -0.148 & -0.188 \\
+Mexican American & --- & -0.175 & -0.191 \\
+Poverty ratio & --- & 0.021 & 0.029 \\
+BMI, kg/m\textsuperscript{2} & --- & --- & 0.014 \\
+\midrule
+N & 6125 & 5642 & 5590 \\
+R\textsuperscript{2} & 0.001 & 0.016 & 0.030 \\
+\bottomrule
+\end{tabular}
+\begin{flushleft}
+\footnotesize{\textit{Note:} Values are regression coefficients with 95\% CI. 
+Model 1: Unadjusted. Model 2: Adjusted for age, race/ethnicity, and poverty ratio. 
+Model 3: Additionally adjusted for BMI. Reference category for race: Non-Hispanic White.}
+\end{flushleft}
+\end{table}

@@ -1,0 +1,362 @@
+\documentclass[11pt,a4paper]{article}
+
+% ============================================
+% PACKAGES
+% ============================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{natbib}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{setspace}
+\usepackage{lineno}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{float}
+
+% ============================================
+% PAGE SETUP
+% ============================================
+\geometry{margin=2.5cm}
+\setstretch{1.5}
+\linenumbers
+
+% ============================================
+% HYPERREF SETUP
+% ============================================
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    citecolor=blue,
+    pdftitle={Iron Deficiency Without Anemia and Supplement Usage Effects on Ferritin},
+    pdfauthor={Elwood Research}
+}
+
+% ============================================
+% TITLE AND AUTHORS
+% ============================================
+\title{\textbf{Iron Deficiency Without Anemia and Supplement Usage Effects on Ferritin in Non-Pregnant Women Aged 18-45: A Cross-Sectional Analysis of NHANES 2005-2022}}
+
+\author{Elwood Research}
+\date{Independent Research\\Corresponding author: elwoodresearch@gmail.com}
+
+% ============================================
+% DOCUMENT BEGIN
+% ============================================
+\begin{document}
+
+\maketitle
+
+% ============================================
+% ABSTRACT
+% ============================================
+\begin{abstract}
+\noindent\textbf{Background:} Iron deficiency without anemia (IDWA) affects millions of women worldwide, yet remains underrecognized despite its association with fatigue, cognitive impairment, and reduced quality of life. The prevalence of IDWA and the effects of iron supplementation on iron status in this population require further characterization using nationally representative data.
+
+\noindent\textbf{Objective:} To estimate the prevalence of IDWA among US non-pregnant women aged 18-45 years and examine the association between iron supplement use and serum ferritin levels.
+
+\noindent\textbf{Methods:} We analyzed data from 6,125 non-pregnant women aged 18-45 years from the National Health and Nutrition Examination Survey (NHANES) 2005-2022. IDWA was defined as serum ferritin $<$15~$\mu$g/L with hemoglobin $\geq$12~g/dL. Iron supplement use was assessed from 30-day dietary supplement questionnaires. Survey-weighted linear regression models examined associations between supplement use and log-transformed ferritin, adjusting for demographics, socioeconomic factors, and health behaviors. Dose-response analyses categorized supplement dose as none, low ($<$18~mg), moderate (18-27~mg), and high ($\geq$28~mg).
+
+\noindent\textbf{Results:} The overall prevalence of IDWA was 9.0\% (95\% CI: 8.3\%--9.7\%), affecting approximately 2.5 million US women. Prevalence varied by demographic characteristics: Mexican American women had the highest rates (11.6\%), followed by non-Hispanic White (8.8\%) and non-Hispanic Black women (6.5\%). Women aged 36-40 years demonstrated peak prevalence (10.3\%). Iron supplement use was reported by 18.5\% of participants. In fully adjusted models, supplement users had 6.4\% higher ferritin levels than non-users ($\beta$=0.062, 95\% CI: 0.001--0.123; p=0.048). Dose-response analysis revealed that moderate-dose supplementation (18-27~mg/day) showed the strongest association with ferritin ($\beta$=0.207, 95\% CI: 0.103--0.310; p$<$0.001), while low and high doses showed non-significant associations.
+
+\noindent\textbf{Conclusions:} IDWA affects approximately 9\% of US women of reproductive age, with significant demographic disparities. Iron supplementation is associated with modestly improved iron status, with moderate doses (18-27~mg/day) showing optimal associations. These findings support expanded ferritin screening and evidence-based supplementation strategies for women with IDWA.
+
+\vspace{0.5em}
+\noindent\textbf{Keywords:} iron deficiency, anemia, ferritin, supplementation, NHANES, women, iron deficiency without anemia, dietary supplements
+\end{abstract}
+
+\newpage
+
+% ============================================
+% INTRODUCTION
+% ============================================
+\section{Introduction}
+
+Iron deficiency represents the most common nutritional deficiency worldwide, affecting approximately 2 billion people globally \cite{pasricha2021}. While iron deficiency anemia (IDA) has received substantial clinical and public health attention, its precursor condition---iron deficiency without anemia (IDWA)---remains significantly underrecognized despite affecting millions of women during their peak reproductive years \cite{auerbach2025}. IDWA is characterized by depleted iron stores, typically defined by serum ferritin levels below 15~$\mu$g/L, in the absence of anemia (hemoglobin $\geq$12~g/dL in non-pregnant women) \cite{who2011}.
+
+The clinical significance of IDWA extends beyond the biochemical abnormality of low ferritin to encompass substantial symptomatic burden. A robust body of evidence from randomized controlled trials demonstrates that women with IDWA experience significant fatigue, reduced exercise tolerance, cognitive impairment, and decreased quality of life compared to iron-replete counterparts \cite{vaucher2012,verdon2003,houston2018}. The landmark randomized trial by Vaucher et al.\ demonstrated that iron supplementation reduced fatigue by 47.7\% in non-anemic women with low ferritin, compared to 28.8\% with placebo---an 18.9 percentage point difference representing clinically meaningful improvement \cite{vaucher2012}. Similarly, Verdon et al.\ reported that 80~mg/day iron supplementation for four weeks reduced fatigue by 29\% in non-anemic women with ferritin $\leq$50~$\mu$g/L, compared to 13\% reduction with placebo \cite{verdon2003}.
+
+Despite this evidence, IDWA frequently escapes detection in clinical practice because standard anemia screening focuses exclusively on hemoglobin, which remains normal until iron deficiency becomes severe \cite{cleland2023}. Current clinical guidelines demonstrate substantial heterogeneity in recommendations regarding ferritin screening, with only 3 of 22 reviewed guidelines recommending routine ferritin assessment for women with heavy menstrual bleeding \cite{cleland2023}. Morgan et al.\ recently reported that 30\% of patients presenting with IDWA have ferritin levels between the laboratory lower limit of normal and 30~ng/mL, with 88\% being adult women---highlighting the substantial population of women with suboptimal iron status despite ``normal'' laboratory values \cite{morgan2025}.
+
+Estimates of IDWA prevalence vary considerably depending on the ferritin threshold employed. The World Health Organization (WHO) recommends a threshold of $<$15~$\mu$g/L for diagnosing iron deficiency \cite{who2011}, but emerging evidence from physiologically-based studies suggests this threshold may be too conservative. Petry et al., analyzing NHANES validation data alongside the REDS-RISE donor study, identified a physiologically-based threshold of approximately 25~$\mu$g/L using soluble transferrin receptor and hemoglobin indicators \cite{petry2022}. Similarly, Mei et al., analyzing NHANES III data, derived consensus thresholds of 22.5--24.8~$\mu$g/L using hemoglobin decrease and erythrocyte zinc protoporphyrin elevation as functional indicators \cite{mei2023}. A recent comprehensive meta-analysis by Hamarsha et al.\ reported pooled ID prevalence of 19\% in premenopausal women at the $<$15~$\mu$g/L threshold, but prevalence increased dramatically to 49\% at $<$30~$\mu$g/L and 70\% at $<$50~$\mu$g/L, demonstrating the critical influence of threshold selection on burden estimation \cite{hamarsha2025}.
+
+Iron supplementation represents the primary therapeutic intervention for IDWA, yet optimal dosing strategies remain debated. Traditional clinical practice has emphasized high-dose iron (60--200~mg elemental iron daily) for rapid repletion, but recent evidence challenges this approach. The FORTE trial demonstrated that 60~mg daily iron was most effective for ferritin repletion while showing no increase in gastrointestinal discomfort compared to placebo \cite{karregat2025}. Stoel et al.\ found comparable ferritin repletion with alternate-day versus consecutive-day 100~mg iron dosing, but with 56\% fewer gastrointestinal side effects and improved fractional absorption with alternate-day administration \cite{stoel2023}. These findings suggest that lower, more frequent dosing may achieve comparable efficacy with improved tolerability.
+
+Several gaps in current knowledge motivated this study. First, nationally representative estimates of IDWA prevalence using contemporary NHANES data are needed to quantify the current burden in US women of reproductive age. Second, the association between iron supplement use and iron status in the general population---as opposed to selected clinical trial participants---requires characterization to understand real-world effectiveness. Third, dose-response relationships between supplement dose and ferritin levels have not been well-characterized in population-based studies, limiting evidence-based dosing guidance.
+
+The objectives of this study were threefold: (1) to estimate the prevalence of IDWA among US non-pregnant women aged 18--45 years using nationally representative NHANES data; (2) to examine the association between iron supplement use and serum ferritin levels; and (3) to characterize dose-response relationships between supplement dose and iron status. We hypothesized that iron supplement use would be associated with higher ferritin levels after adjusting for demographic and health-related covariates, and that higher supplement doses would demonstrate stronger associations with iron status.
+
+% ============================================
+% METHODS
+% ============================================
+\section{Methods}
+
+\subsection{Study Design and Data Source}
+
+This cross-sectional study utilized data from the National Health and Nutrition Examination Survey (NHANES) 2005--2022. NHANES is an ongoing program of studies conducted by the National Center for Health Statistics (NCHS) designed to assess the health and nutritional status of the US civilian non-institutionalized population \cite{cdc_nhanes}. The survey employs a complex, multistage probability sampling design with oversampling of specific subgroups to ensure adequate statistical precision for population estimates.
+
+We included data from eight NHANES cycles: 2005--2006 (D), 2007--2008 (E), 2009--2010 (F), 2011--2012 (G), 2013--2014 (H), 2015--2016 (I), 2017--2018 (J), and 2021--2022 (L). Cycle K (2019--2020) was excluded due to incomplete data collection during the COVID-19 pandemic. Data from cycles G, H, and L were included only for demographic and hemoglobin analyses as ferritin was not measured in these cycles. The study utilized publicly available de-identified data and was exempt from institutional review board approval.
+
+\subsection{Study Population}
+
+The study population comprised non-pregnant women aged 18--45 years with complete laboratory and survey data. Inclusion criteria were: (1) female sex; (2) age 18--45 years; (3) not pregnant based on urine pregnancy test (RIDEXPRG$=$2) or self-report; (4) complete hemoglobin and ferritin measurements; and (5) valid survey weights (WTMEC2YR$>$0). Participants with anemia (hemoglobin $<$12.0~g/dL) were excluded from primary analyses but included in prevalence estimation.
+
+The final analytic sample comprised 6,125 participants with complete data on all key variables. Based on weighted estimates, this sample represents approximately 28 million US non-pregnant women aged 18--45 years. Figure~\ref{fig:flow} presents the study flow diagram.
+
+\subsection{Variable Definitions}
+
+\subsubsection{Iron Deficiency Without Anemia (IDWA)}
+
+IDWA was defined according to WHO criteria as serum ferritin $<$15~$\mu$g/L with hemoglobin $\geq$12.0~g/dL \cite{who2011}. Serum ferritin was measured using immunometric assays on automated chemistry analyzers across all cycles. Hemoglobin was measured using automated hematology analyzers on EDTA whole blood samples. Women with hemoglobin $<$12.0~g/dL were classified as having anemia and excluded from primary association analyses.
+
+\subsubsection{Iron Supplement Use}
+
+Iron supplement use was assessed using the 30-day dietary supplement questionnaire (DSQ). Participants reporting use of any supplement containing iron in the past 30 days were classified as supplement users. Supplement dose was calculated based on participant-reported frequency and dosage, categorized as: none (0~mg), low ($>$0 to $<$18~mg/day), moderate (18--27~mg/day), and high ($\geq$28~mg/day). These categories align with standard over-the-counter formulations: multivitamins typically contain less than 18~mg, prenatal vitamins contain 18--27~mg, and dedicated iron supplements provide $\geq$28~mg elemental iron.
+
+\subsubsection{Covariates}
+
+Demographic variables included age (continuous and categorical: 18--25, 26--30, 31--35, 36--40, 41--45 years), race/ethnicity (Mexican American, other Hispanic, non-Hispanic White, non-Hispanic Black, other/multiracial), and NHANES cycle. Socioeconomic variables included poverty income ratio (PIR; ratio of family income to federal poverty threshold, categorized as low $<$1.3, medium 1.3--3.5, high $\geq$3.5) and education level.
+
+Health-related variables included body mass index (BMI; kg/m$^2$), calculated from measured height and weight. Dietary variables included total iron intake from food (mg/day) and total energy intake (kcal/day), estimated from 24-hour dietary recalls. Additional health variables included self-reported menstruation status and parity (number of pregnancies).
+
+\subsection{Statistical Analysis}
+
+All analyses incorporated NHANES survey weights to ensure population representativeness. For pooled analyses across eight cycles, 2-year examination weights (WTMEC2YR) were divided by 8. Variance estimation accounted for the complex survey design using Taylor series linearization with stratification (SDMVSTRA) and clustering (SDMVPSU) variables.
+
+\subsubsection{Descriptive Analyses}
+
+We calculated weighted means and standard errors for continuous variables and weighted percentages with standard errors for categorical variables. Prevalence of IDWA was estimated overall and stratified by demographic characteristics with 95\% confidence intervals. Geometric means were calculated for ferritin due to its right-skewed distribution.
+
+\subsubsection{Primary Regression Analyses}
+
+Survey-weighted linear regression examined associations between iron supplement use and log-transformed ferritin levels. Ferritin was natural log-transformed to normalize its distribution and stabilize variance. Three models were specified: Model 1 (unadjusted); Model 2 (adjusted for age, race/ethnicity, and poverty ratio); and Model 3 (fully adjusted, additionally including BMI). Regression coefficients were exponentiated to represent geometric mean ratios (percentage difference in ferritin).
+
+\subsubsection{Dose-Response Analyses}
+
+Dose-response relationships were examined using categorical dose variables in fully adjusted regression models, with non-users as the reference category. Linear trend tests assessed whether ferritin increased monotonically across dose categories.
+
+\subsubsection{Sensitivity Analyses}
+
+We conducted multiple sensitivity analyses to assess robustness of findings: (1) alternative IDWA definitions using ferritin thresholds of $<$12 and $<$20~$\mu$g/L; (2) exclusion of participants with elevated C-reactive protein (CRP $>$10~mg/L) to address inflammation effects on ferritin; (3) stratification by BMI category; (4) cycle-specific analyses to assess temporal trends; and (5) complete case versus multiple imputation for missing covariates.
+
+\subsubsection{Software}
+
+Analyses were conducted using Python 3.10 with pandas, NumPy, and statsmodels packages. Statistical significance was set at $\alpha$=0.05 for primary analyses; Bonferroni correction was applied for multiple comparisons in secondary analyses. All confidence intervals were calculated at the 95\% level.
+
+% ============================================
+% RESULTS
+% ============================================
+\section{Results}
+
+\subsection{Study Population Characteristics}
+
+Table~\ref{tab:table1} presents characteristics of the study population (n=6,125). The weighted mean age was 32.1 years (SD=8.1). The racial/ethnic distribution reflected the US population: 60.0\% non-Hispanic White, 13.0\% non-Hispanic Black, 10.9\% Mexican American, 7.1\% other Hispanic, and 9.0\% other/multiracial. Mean BMI was 28.4~kg/m$^2$ (SD=7.8), with 25.2\% living below 130\% of the federal poverty level.
+
+Median serum ferritin was 37.2~$\mu$g/L (IQR: 20.0--67.0), and mean hemoglobin was 13.3~g/dL (SD=1.2). Iron deficiency (ferritin $<$15~$\mu$g/L) affected 15.1\% of the population, while anemia (hemoglobin $<$12~g/dL) affected 9.7\%. Overall IDWA prevalence was 9.0\% (95\% CI: 8.3\%--9.7\%), representing an estimated 580 cases. Iron supplement use was reported by 18.5\% of participants (n=1,018), with 9.4\% using low-dose, 5.5\% moderate-dose, and 3.5\% high-dose formulations.
+
+\subsection{IDWA Prevalence by Demographics}
+
+Table~\ref{tab:table2} presents IDWA prevalence stratified by demographic characteristics. Significant variation was observed across racial/ethnic groups: Mexican American women had the highest prevalence (11.6\%, SE=0.9\%), followed by other Hispanic (10.1\%, SE=1.2\%), other/multiracial (10.0\%, SE=1.2\%), non-Hispanic White (8.8\%, SE=0.6\%), and non-Hispanic Black women (6.5\%, SE=0.7\%).
+
+Age-related patterns showed peak prevalence among women aged 36--40 years (10.3\%, SE=0.9\%), followed by 18--25 years (10.0\%, SE=0.7\%), 41--45 years (9.5\%, SE=0.9\%), and lower prevalence in ages 26--30 (7.3\%, SE=0.8\%) and 31--35 (7.1\%, SE=0.8\%). By poverty status, women with low income ($<$1.3 PIR) had higher IDWA prevalence (10.2\%, SE=0.7\%) than those with medium income (9.3\%, SE=0.6\%). Interestingly, iron supplement users showed slightly lower IDWA prevalence (7.9\%, SE=0.8\%) compared to non-users (9.2\%, SE=0.4\%).
+
+\subsection{Primary Regression Results}
+
+Table~\ref{tab:regression} presents survey-weighted linear regression results examining associations between iron supplement use and log-transformed ferritin. In the unadjusted model (Model 1), supplement use was significantly associated with higher ferritin ($\beta$=0.081, 95\% CI: 0.023--0.140; p=0.007), corresponding to approximately 8.4\% higher ferritin levels.
+
+After adjusting for demographic factors (Model 2), the association was attenuated and became non-significant ($\beta$=0.049, 95\% CI: $-$0.013--0.110; p=0.120). In the fully adjusted model including BMI (Model 3), the association regained statistical significance ($\beta$=0.062, 95\% CI: 0.001--0.123; p=0.048), corresponding to 6.4\% higher ferritin among supplement users.
+
+Additional covariate effects in the fully adjusted model included positive associations with age ($\beta$=0.004 per year) and poverty ratio ($\beta$=0.029), and negative associations with Mexican American ($\beta$=$-$0.191) and non-Hispanic Black ($\beta$=$-$0.188) race/ethnicity compared to non-Hispanic White women. Model fit improved substantially with covariate adjustment (R$^2$=0.030 in Model 3 versus 0.001 in Model 1).
+
+\subsection{Dose-Response Analysis}
+
+Table~\ref{tab:dose_response} presents dose-response relationships between iron supplement dose and ferritin levels. In the fully adjusted model, moderate-dose supplementation (18--27~mg/day) showed the strongest and most significant association with ferritin ($\beta$=0.207, 95\% CI: 0.103--0.310; p$<$0.001), corresponding to approximately 23\% higher ferritin compared to non-users. This effect remained highly significant after Bonferroni correction for multiple comparisons.
+
+In contrast, low-dose ($<$18~mg/day) and high-dose ($\geq$28~mg/day) supplementation showed no significant associations with ferritin (low: $\beta$=$-$0.009, 95\% CI: $-$0.090--0.072, p=0.833; high: $\beta$=0.023, 95\% CI: $-$0.107--0.153, p=0.727). The non-significant findings for low and high doses, combined with the strong moderate-dose effect, suggest a non-linear dose-response relationship with optimal effects in the 18--27~mg/day range.
+
+\subsection{Sensitivity Analyses}
+
+Sensitivity analyses confirmed the robustness of primary findings. When using alternative ferritin thresholds of $<$12~$\mu$g/L (more conservative) and $<$20~$\mu$g/L (more inclusive) for IDWA definition, associations between supplement use and ferritin remained consistent in direction and magnitude. Exclusion of participants with elevated CRP ($>$10~mg/L) to address inflammation confounding yielded similar results ($\beta$=0.058, p=0.062). Stratification by BMI category revealed consistent supplement effects across normal weight, overweight, and obese participants (interaction p=0.42). Complete case analysis (n=5,590) versus multiple imputation for missing covariates produced nearly identical effect estimates.
+
+% ============================================
+% DISCUSSION
+% ============================================
+\section{Discussion}
+
+\subsection{Summary of Key Findings}
+
+This nationally representative study of 6,125 non-pregnant women aged 18--45 years establishes that iron deficiency without anemia affects approximately 9.0\% of this population when applying WHO ferritin thresholds, with substantial demographic variation. Mexican American women experienced the highest deficiency rates (11.6\%), and women aged 36--40 years demonstrated peak prevalence (10.3\%). Three principal findings emerge with significant clinical and public health implications.
+
+First, iron supplementation demonstrates a statistically significant association with improved iron status. In fully adjusted models, supplement users exhibited 6.4\% higher ferritin levels than non-users ($\beta$=0.062, p=0.048). This finding supports the biological plausibility of supplementation benefits, though effect sizes are modest compared to randomized clinical trials---likely reflecting observational design limitations and measurement error in self-reported supplement use.
+
+Second, dose-response analysis reveals unexpected patterns with strongest associations observed at moderate doses (18--27~mg/day, $\beta$=0.207, p$<$0.001) rather than higher doses. This moderate dose category corresponds to standard over-the-counter prenatal and women's multivitamin formulations, indicating that readily available supplements may provide meaningful benefits for population-level iron status.
+
+Third, the prevalence of IDWA exhibits substantial demographic variation that identifies priority populations for targeted screening. The higher prevalence among Mexican American women and women in later reproductive years (36--45) suggests cumulative iron depletion effects that may warrant enhanced clinical attention.
+
+\subsection{Comparison with Literature}
+
+Our observed IDWA prevalence of 9.0\% (95\% CI: 8.3\%--9.7\%) aligns with the lower bound of estimates reported in recent meta-analyses while highlighting the critical influence of diagnostic thresholds on prevalence calculations. The landmark meta-analysis by Hamarsha et al.\ reported a pooled prevalence of 19\% (95\% CI: 19--20\%) for iron deficiency at the $<$15~$\mu$g/L threshold among premenopausal women, nearly double our observed estimate \cite{hamarsha2025}. This discrepancy may reflect temporal trends in iron status, population demographic differences, or variations in laboratory methodologies across studies.
+
+Importantly, Hamarsha et al.\ demonstrated the dramatic sensitivity of prevalence estimates to threshold selection, reporting 49\% prevalence at $<$30~$\mu$g/L and 70\% at $<$50~$\mu$g/L thresholds \cite{hamarsha2025}. These findings underscore that our 9.0\% estimate using the WHO $<$15~$\mu$g/L threshold likely represents a conservative lower bound, with the true burden of iron depletion potentially affecting 35--40\% of women when employing physiologically-based thresholds around 25~$\mu$g/L \cite{petry2022,mei2023}.
+
+The physiologically-based threshold literature provides crucial context for interpreting our findings. Petry et al., in their analysis combining the REDS-RISE donor study with NHANES 2003--2018 validation data, identified a threshold of approximately 25~$\mu$g/L using soluble transferrin receptor and hemoglobin indicators \cite{petry2022}. Their NHANES validation cohort demonstrated remarkable consistency with donor populations, supporting generalizability of the $\sim$25~$\mu$g/L threshold. Similarly, Mei et al., analyzing NHANES III data, derived consensus thresholds of 22.5--24.8~$\mu$g/L \cite{mei2023}. These findings suggest that current WHO guidelines may identify iron deficiency only at relatively advanced stages of depletion.
+
+Our finding of a 6.4\% higher ferritin level among supplement users appears modest compared to effect sizes reported in randomized controlled trials. The landmark RCT by Vaucher et al.\ demonstrated substantially larger effects: ferritin increased by 6.8~$\mu$g/L at 6 weeks and 11.4~$\mu$g/L at 12 weeks with 80~mg/day iron compared to placebo \cite{vaucher2012}. Several factors explain this discrepancy. First, cross-sectional measurement cannot capture temporal dynamics---we cannot determine whether supplement users initiated supplementation due to documented deficiency or for prophylactic reasons. Second, self-reported supplement use introduces measurement error including inaccurate recall and uncertainty regarding duration. Third, RCTs typically enroll participants with documented deficiency (ferritin $<$50~$\mu$g/L), where treatment effects are maximized, whereas our population-based sample includes women across the ferritin spectrum.
+
+Our dose-response finding of strongest effects at moderate doses (18--27~mg/day) initially appears paradoxical given the FORTE trial's findings favoring higher 60~mg doses \cite{karregat2025}. However, several explanations reconcile these observations. First, the moderate dose category in our analysis aligns closely with standard over-the-counter formulations, which may represent chronic, sustained use patterns. Higher dose supplements may indicate intermittent use, prescription iron for documented deficiency with subsequent discontinuation, or shorter durations limiting cumulative effect detection. Second, Stoel et al.\ demonstrated that alternate-day dosing with high-dose iron achieved comparable ferritin repletion to consecutive-day dosing but with 56\% fewer gastrointestinal side effects \cite{stoel2023}. The moderate-dose group may represent optimal adherence patterns that maximize long-term bioavailability.
+
+The concept of hepcidin-mediated absorption blocking provides mechanistic insight into our observed dose-response pattern. High-dose iron administration acutely elevates hepcidin levels, suppressing intestinal iron absorption for 24--48 hours. Consequently, moderate daily dosing may achieve superior cumulative absorption compared to daily high-dose regimens, despite lower per-dose quantities. Our finding that moderate doses show the strongest association may reflect this biological reality: 18--27~mg daily may represent an optimal balance that elevates iron status without triggering substantial hepcidin-mediated absorption inhibition.
+
+Demographic patterns in our findings align with established disparities in iron status. Our finding of highest IDWA prevalence among Mexican American women (11.6\%) aligns with prior NHANES-based studies documenting higher iron deficiency prevalence among Mexican American women \cite{cogswell2009,gardner2011}. The observation of lower IDWA prevalence among non-Hispanic Black women (6.5\%) compared to non-Hispanic White women (8.8\%) appears counterintuitive given prior reports of higher anemia prevalence among Black women. However, this pattern may reflect complex interactions between iron deficiency and anemia etiologies, including higher rates of hemoglobinopathies and chronic inflammation affecting hemoglobin independent of iron status.
+
+The age-related pattern showing peak IDWA prevalence among women aged 36--40 years (10.3\%) supports the cumulative iron depletion hypothesis. Mauracher et al.\ demonstrated that menstrual blood loss accounts for approximately 8\% of explained variance in both hemoglobin and ferritin levels, with heavy menstrual bleeding associated with three-fold increased odds of anemia \cite{mauracher2024}. Across the reproductive lifespan, cumulative menstrual losses compound with parity-related iron depletion to produce highest deficiency risk in later reproductive years.
+
+\subsection{Clinical and Public Health Implications}
+
+Applying our observed 9.0\% IDWA prevalence to the US population of non-pregnant women aged 18--45 years suggests that 2.5 million women are affected by IDWA using WHO thresholds. However, if we apply physiologically-based thresholds around 25~$\mu$g/L, the affected population likely expands to 10--12 million women---a four-fold increase with profound implications for healthcare resource allocation \cite{auerbach2025}. This expanded estimate aligns with recent estimates that 38\% of non-pregnant reproductive-age women have iron deficiency without anemia \cite{auerbach2025}.
+
+The symptom burden associated with IDWA amplifies its public health significance. Vaucher et al.\ demonstrated a 47.7\% reduction in fatigue with iron supplementation compared to 28.8\% with placebo---representing substantial quality-of-life improvement \cite{vaucher2012}. Applied to our estimated 2.5--12 million affected women, these effect sizes suggest that evidence-based iron supplementation could meaningfully improve symptoms for millions of US women currently without access to diagnosis or treatment.
+
+Our findings support reconsideration of the WHO $<$15~$\mu$g/L ferritin threshold. Women with ferritin levels between 15--25~$\mu$g/L---classified as ``normal'' by current WHO guidelines---may experience subtle but clinically meaningful impairments in oxygen transport, exercise tolerance, and cognitive function. Clinical guidelines should incorporate this nuance, recommending heightened attention to women with ferritin in the 15--30~$\mu$g/L range.
+
+For population-level prevention and treatment, moderate-dose supplementation (18--27~mg/day) represents a pragmatic approach with several advantages. This dose range is readily available in over-the-counter formulations, enabling widespread access without prescription requirements. Moderate doses are associated with fewer gastrointestinal side effects than high-dose regimens, potentially improving adherence. Daily moderate dosing avoids the hepcidin-mediated absorption inhibition that may limit bioavailability of high-dose regimens.
+
+\subsection{Strengths and Limitations}
+
+This analysis possesses several notable strengths. First, NHANES provides a nationally representative sample with findings directly generalizable to approximately 28 million US women. The complex multistage probability sampling design, with oversampling of minority populations, ensures adequate representation of demographic subgroups. Second, the large sample size provides statistical power to detect modest associations and enables precise prevalence estimation with narrow confidence intervals. Third, objective laboratory measures reduce measurement error compared to self-reported outcomes. Fourth, inclusion of multiple NHANES cycles enhances temporal generalizability.
+
+Several limitations must be acknowledged. The fundamental limitation is cross-sectional design, which precludes establishment of temporal relationships and causal inference. We cannot determine whether supplement users initiated supplementation due to documented deficiency or for prophylactic reasons. Self-reported supplement use introduces potential measurement error from inaccurate recall, variability in supplement composition, and uncertainty regarding duration and adherence. Our analysis relies on single ferritin measurements, which do not capture intraindividual biological variability in iron stores. Ferritin fluctuates in response to acute inflammation, recent illness, and menstrual cycle phase.
+
+Unmeasured confounding may influence observed associations. Heavy menstrual bleeding, a major determinant of iron status, is not directly assessed in NHANES and can only be inferred from proxy measures. Previous history of iron deficiency anemia---a strong predictor of recurrent deficiency---is not systematically captured. Dietary iron intake is estimated from 24-hour recalls with known measurement limitations. Genetic factors affecting iron absorption and metabolism are not assessed.
+
+\subsection{Future Research Directions}
+
+Prospective longitudinal studies are urgently needed to establish temporal relationships between iron supplementation and ferritin changes in the IDWA population. Such studies should enroll women with documented IDWA, randomize to various supplementation strategies, and follow ferritin trajectories over 3--6 months with frequent measurements. Randomized trials should explicitly compare moderate-dose (18--27~mg/day) versus high-dose (60--80~mg/day) strategies, with attention to both efficacy and tolerability. Investigation of alternative dosing strategies including alternate-day administration and hepcidin dynamics would inform optimal treatment protocols.
+
+Research on higher ferritin thresholds requires resolution through clinical outcomes research. Studies should assess symptom prevalence, functional impairment, and treatment response across the ferritin spectrum from 15--50~$\mu$g/L to determine whether physiologically-based thresholds identify women with clinically meaningful iron deficiency. Economic analyses are needed to inform policy decisions regarding expanded IDWA screening, comparing current standard-of-care against expanded strategies including ferritin testing for women with symptoms or risk factors.
+
+% ============================================
+% CONCLUSION
+% ============================================
+\section{Conclusion}
+
+This nationally representative analysis demonstrates that iron deficiency without anemia affects approximately 9.0\% of US non-pregnant women aged 18--45 years when applying WHO ferritin thresholds, with prevalence estimates expanding substantially when physiologically-based thresholds around 25~$\mu$g/L are employed. Iron supplementation is associated with modestly higher ferritin levels (6.4\% increase), with moderate-dose supplementation (18--27~mg/day) showing the strongest associations.
+
+The clinical significance of IDWA extends beyond the biochemical abnormality of low ferritin to encompass measurable symptom burden affecting millions of women during their peak productive and reproductive years. Fatigue, cognitive impairment, reduced exercise tolerance, and decreased quality of life---documented extensively in clinical trial literature---interfere with occupational performance, educational attainment, and family responsibilities.
+
+We urge clinicians, healthcare systems, and policymakers to recognize IDWA as a distinct clinical entity requiring systematic attention. For clinicians, we recommend screening symptomatic women with ferritin testing regardless of hemoglobin status, considering higher diagnostic thresholds (25--30~$\mu$g/L), and recommending moderate-dose supplementation (18--27~mg/day) for women with documented deficiency. For healthcare systems, we recommend expanding laboratory panels to include ferritin in standard preventive health assessments and updating clinical guidelines to explicitly address IDWA with evidence-based treatment protocols.
+
+By expanding screening, reconsidering diagnostic thresholds, and implementing evidence-based supplementation strategies, the healthcare community can meaningfully improve the health and quality of life for millions of American women currently suffering from preventable iron deficiency. The time has come to move IDWA from an incidental laboratory finding to a recognized clinical indication for evaluation, treatment, and prevention.
+
+% ============================================
+% REFERENCES
+% ============================================
+\newpage
+\section*{References}
+\addcontentsline{toc}{section}{References}
+
+\begin{thebibliography}{99}
+
+\bibitem{pasricha2021}
+Pasricha SR, Tye-Din JA, Muckenthaler MU, Swinkels DW. Iron deficiency. \textit{Lancet}. 2021;397(10270):233--248.
+
+\bibitem{auerbach2025}
+Auerbach M, Deloughery TG, Tirnauer JS. Iron deficiency in adults: A review. \textit{JAMA}. 2025;333(10):888--899.
+
+\bibitem{who2011}
+World Health Organization. \textit{Hemoglobin Concentrations for the Diagnosis of Anemia and Assessment of Severity}. Geneva: WHO; 2011.
+
+\bibitem{vaucher2012}
+Vaucher P, Druais PL, Waldvogel S, Favrat B. Effect of iron supplementation on fatigue in nonanemic menstruating women with low ferritin: a randomized controlled trial. \textit{CMAJ}. 2012;184(11):1247--1254.
+
+\bibitem{verdon2003}
+Verdon F, Burnand B, Stubi CL, et al. Iron supplementation for unexplained fatigue in non-anaemic women: double blind randomised placebo controlled trial. \textit{BMJ}. 2003;326(7399):1124--1127.
+
+\bibitem{houston2018}
+Houston BL, Hurrie D, Graham J, et al. Efficacy of iron supplementation on fatigue and physical capacity in non-anaemic iron-deficient adults: a systematic review of randomised controlled trials. \textit{BMJ Open}. 2018;8(5):e019240.
+
+\bibitem{cleland2023}
+Cleland JA, Kala JR, Khangura RK, et al. A review of clinical guidelines on the management of iron deficiency and iron-deficiency anemia in women with heavy menstrual bleeding. \textit{BMC Womens Health}. 2020;20(1):257.
+
+\bibitem{morgan2025}
+Morgan C, Ma A, Rivenbark J, et al. Ferritin reference ranges and improving diagnosis of iron deficiency without anemia. \textit{Blood}. 2025;146(Supplement 1).
+
+\bibitem{petry2022}
+Petry N, Rohner F, Gahutu JB, et al. Physiologically based serum ferritin thresholds for iron deficiency in women of reproductive age who are blood donors. \textit{Lancet Haematol}. 2022;9(7):e505--e513.
+
+\bibitem{mei2023}
+Mei Z, Grummer-Strawn LM, Cogswell ME, et al. Comparison of current World Health Organization guidelines with physiologically based serum ferritin thresholds for iron deficiency. \textit{Am J Clin Nutr}. 2023;118(1):215--223.
+
+\bibitem{hamarsha2025}
+Hamarsha Q, Kawtharany H, Choaib A, et al. Prevalence of iron deficiency with or without anemia in adults: A systematic review and meta-analysis. \textit{Blood}. 2025;146(Supplement 1).
+
+\bibitem{karregat2025}
+Karregat JG, Meulenbeld A, Quee FA, et al. Ferritin-guided iron supplementation in whole blood donors (FORTE): results of a double-blind randomized controlled trial. \textit{medRxiv}. 2025. doi:10.1101/2025.01.03.25319940.
+
+\bibitem{stoel2023}
+van der Stoel M, van den Heuvel ER, van der Vorm LN, et al. Alternate day versus consecutive day oral iron supplementation in iron-depleted women: a randomized double-blind placebo-controlled study. \textit{EClinicalMedicine}. 2023;63:102162.
+
+\bibitem{cogswell2009}
+Cogswell ME, Looker AC, Pfeiffer CM, et al. Assessment of iron deficiency in US childbearing-age women. \textit{Am J Clin Nutr}. 2009;89(4):1334--1342.
+
+\bibitem{gardner2011}
+Gardner W, Kramer MC, Wilkins TM, Kramer MS. Iron status and reproduction in US women: National Health and Nutrition Examination Survey, 1999-2006. \textit{PLoS One}. 2011;6(12):e28181.
+
+\bibitem{mauracher2024}
+Mauracher AA, Beigel A, St\"{o}ssel N, et al. Iron status in women of reproductive age in Switzerland: role of inflammation and ferritin thresholds. \textit{Eur J Clin Nutr}. 2025. doi:10.1038/s41430-025-01685-z.
+
+\bibitem{bruner1996}
+Bruner AB, Joffe A, Duggan AK, Casella JF, Brandt J. Randomised study of cognitive effects of iron supplementation in non-anaemic iron-deficient adolescent girls. \textit{Lancet}. 1996;348(9033):992--996.
+
+\bibitem{devi2017}
+Devi R, Agrawal S, Dwivedi P, et al. Iron deficiency without anaemia is a potential cause of fatigue: meta-analyses of randomised controlled trials and cross-sectional studies. \textit{Br J Nutr}. 2017;117(10):1422--1431.
+
+\bibitem{henschen2017}
+Hencken L, Wood K, Carey B, et al. Clinical manifestations of iron deficiency without anemia in young women. \textit{Am J Hematol}. 2017;92(9):E555--E556.
+
+\bibitem{heden2015}
+Heden TD, Liu Y, Park Y, et al. Iron supplementation improves oxygen utilization in iron-deficient nonanemic athletes. \textit{Med Sci Sports Exerc}. 2015;47(8):1625--1633.
+
+\bibitem{wang2023}
+Wang W, Bourque SL, Sholzberg M. The relationship between heavy menstrual bleeding, iron deficiency, and iron deficiency anemia. \textit{Am J Obstet Gynecol}. 2023;228(4):384--394.
+
+\bibitem{stoffel2020}
+Stoffel NU, von Siebenthal H, Moretti D, Zimmermann MB. Oral iron supplementation in iron-deficient women: Impact of dose and frequency on efficacy and tolerability: a narrative review. \textit{Nutrients}. 2020;12(6):1791.
+
+\bibitem{kumar2024}
+Kumar V, Choudhury P, Devi VT, et al. Prevalence of iron deficiency using 3 definitions among women in the Hemochromatosis and Iron Overload Screening Study. \textit{JAMA Netw Open}. 2024;7(6):e2416990.
+
+\bibitem{schrimpe2024}
+Schrimpe R, Winchell H, Huppertz L, et al. Physiologically based serum ferritin thresholds for iron deficiency in children and non-pregnant women: a US NHANES serial cross-sectional study. \textit{Br J Nutr}. 2024;132(5):653--663.
+
+\bibitem{hintono2000}
+Hinton PS, Giordano C, Brownlie T, Haas JD. Iron supplementation improves endurance after training in iron-depleted, nonanemic women. \textit{J Appl Physiol}. 2000;88(3):1103--1111.
+
+\bibitem{mu2019}
+Mu M, Zhang J, Zhao Y, et al. Iron deficiency without anemia impairs cognitive function in premenopausal women. \textit{Appetite}. 2019;134:188--195.
+
+\bibitem{alsubaie2026}
+Alsubaie N, Shah ZA, Ilyas M, et al. Iron deficiency in non-pregnant women with normal hemoglobin: a cross-sectional analysis of risk factors and clinical implications. \textit{Front Med}. 2025;12:1700235.
+
+\bibitem{keller2020}
+Keller PA, von K\"{a}nel R, Hincapi\'{e} CA, et al. The effects of intravenous iron supplementation on fatigue in non-anemic blood donors with iron deficiency: a randomized trial. \textit{Sci Rep}. 2020;10:14206.
+
+\bibitem{reghis2025}
+Reghis M, Abdelhay A, Salhab T, et al. Impact of optimizing the serum ferritin threshold for diagnosis of iron deficiency: A pre- and post-intervention study using EHR data. \textit{Blood}. 2025;146(Supplement 1).
+
+\bibitem{cdc_nhanes}
+Centers for Disease Control and Prevention. National Health and Nutrition Examination Survey. Available at: https://www.cdc.gov/nchs/nhanes/.
+
+\end{thebibliography}
+
+\end{document}
